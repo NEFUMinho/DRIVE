@@ -1,0 +1,13 @@
+output_precision(6)
+hip.max=sqrt(42^2+22^2)
+hip.min=sqrt(25^2+15^2)
+save hip.m
+clear
+home
+load hip.m
+hip =
+
+  scalar structure containing the fields:
+
+    max = 47.4131
+    min = 29.1548

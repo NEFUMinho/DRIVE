@@ -1,0 +1,494 @@
+>> B=[0 (1/2) (2^2); 1 sqrt(3) (sqrt(3)/3)]
+B =
+
+        0   0.5000   4.0000
+   1.0000   1.7321   0.5774
+
+>> size(B)
+ans =
+
+   2   3
+********************************************************************************
+>> help size
+'size' is a built-in function from the file libinterp/corefcn/data.cc
+
+ -- SZ = size (A)
+ -- DIM_SZ = size (A, DIM)
+ -- [ROWS, COLS, ..., DIM_N_SZ] = size (...)
+     Return a row vector with the size (number of elements) of each
+     dimension for the object A.
+
+     When given a second argument, DIM, return the size of the
+     corresponding dimension.
+
+     With a single output argument, 'size' returns a row vector.  When
+     called with multiple output arguments, 'size' returns the size of
+     dimension N in the Nth argument.  The number of rows, dimension 1,
+     is returned in the first argument, the number of columns, dimension
+     2, is returned in the second argument, etc.  If there are more
+     dimensions in A than there are output arguments, 'size' returns the
+     total number of elements in the remaining dimensions in the final
+     output argument.
+
+     Example 1: single row vector output
+
+          size ([1, 2; 3, 4; 5, 6])
+             => [ 3, 2 ]
+
+     Example 2: number of elements in 2nd dimension (columns)
+
+          size ([1, 2; 3, 4; 5, 6], 2)
+              => 2
+
+     Example 3: number of output arguments == number of dimensions
+
+          [nr, nc] = size ([1, 2; 3, 4; 5, 6])
+              => nr = 3
+              => nc = 2
+
+     Example 4: number of output arguments < number of dimensions
+
+          [nr, remainder] = size (ones (2, 3, 4, 5))
+              => nr = 2
+              => remainder = 60
+
+     See also: numel, ndims, length, rows, columns, size_equal,
+     common_size.
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+'doc <topic>' to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at https://www.octave.org and via the help@octave.org
+mailing list.
+********************************************************************************************
+>> size(B,1)
+ans = 2
+**********************************************************************************************
+>> help format
+'format' is a built-in function from the file libinterp/corefcn/pr-output.cc
+
+ -- format
+ -- format options
+ -- [FORMAT, FORMATSPACING, UPPERCASE] = format
+     Reset or specify the format of the output produced by 'disp' and
+     Octave's normal echoing mechanism.
+
+     This command only affects the display of numbers, but not how they
+     are stored or computed.  To change the internal representation from
+     the default double use one of the conversion functions such as
+     'single', 'uint8', 'int64', etc.
+
+     By default, Octave displays 5 significant digits in a human
+     readable form (option 'short', option 'lowercase', and option
+     'loose' format for matrices).  If 'format' is invoked without any
+     options, this default format is restored.
+
+     Valid format options for floating point numbers are listed in the
+     following table.
+
+     'short'
+          Fixed point format with 5 significant figures (default).
+
+     'long'
+          Fixed point format with 16 significant figures.
+
+          As with the 'short' format, Octave will switch to an
+          exponential 'e' format if it is unable to format a matrix
+          properly using the current format.
+
+     'short e'
+     'long e'
+          Exponential format.  The number to be represented is split
+          between a mantissa and an exponent (power of 10).  The
+          mantissa has 5 significant digits in the short format.  In the
+          long format, double values are displayed with 16 significant
+          digits and single values are displayed with 8.  For example,
+          with the 'short e' format, 'pi' is displayed as '3.1416e+00'.
+
+     'short g'
+     'long g'
+          Optimally choose between fixed point and exponential format
+          based on the magnitude of the number.  For example, with the
+          'short g' format, 'pi .^ [2; 4; 8; 16; 32]' is displayed as
+
+               ans =
+
+                     9.8696
+                     97.409
+                     9488.5
+                 9.0032e+07
+                 8.1058e+15
+
+     'short eng'
+     'long eng'
+          Identical to 'short e' or 'long e' but displays the value
+          using an engineering format, where the exponent is divisible
+          by 3.  For example, with the 'short eng' format, '10 * pi' is
+          displayed as '31.416e+00'.
+
+     'free'
+     'none'
+          Print output in free format, without trying to line up columns
+          of matrices on the decimal point.  This is a raw format
+          equivalent to the C++ code 'std::cout << VARIABLE'.  In
+          general, the result is a presentation with 6 significant
+          digits where unnecessary precision (such as trailing zeros for
+          integers) is suppressed.  Complex numbers are formatted as
+          numeric pairs like this '(0.60419, 0.60709)' instead of like
+          this '0.60419 + 0.60709i'.
+
+     The following formats affect all numeric output (floating point and
+     integer types).
+
+     "+"
+     "+" "CHARS"
+     'plus'
+     'plus CHARS'
+          Print a '+' symbol for matrix elements greater than zero, a
+          '-' symbol for elements less than zero, and a space for zero
+          matrix elements.  This format can be useful for examining the
+          sparsity structure of a large matrix.  For very large matrices
+          the function 'spy' which plots the sparsity pattern will be
+          clearer.
+
+          The optional argument CHARS specifies a list of 3 characters
+          to use for printing values greater than zero, less than zero,
+          and equal to zero.  For example, with the format "+" "+-.",
+          the matrix '[1, 0, -1; -1, 0, 1]' is displayed as
+
+               ans =
+
+               +.-
+               -.+
+
+     bank
+          Print variable in a format appropriate for a currency (fixed
+          format with two digits to the right of the decimal point).
+          Only the real part of a variable is displayed, as the
+          imaginary part makes no sense for a currency.
+
+     native-hex
+          Print the hexadecimal representation of numbers as they are
+          stored in memory.  For example, on a workstation which stores
+          8 byte real values in IEEE format with the least significant
+          byte first, the value of 'pi' when printed in 'native-hex'
+          format is '400921fb54442d18'.
+
+     hex
+          The same as 'native-hex', but always print the most
+          significant byte first.
+
+     native-bit
+          Print the bit representation of numbers as stored in memory.
+          For example, the value of 'pi' is
+
+               01000000000010010010000111111011
+               01010100010001000010110100011000
+
+          (shown here in two 32 bit sections for typesetting purposes)
+          when printed in native-bit format on a workstation which
+          stores 8 byte real values in IEEE format with the least
+          significant byte first.
+
+     bit
+          The same as 'native-bit', but always print the most
+          significant bits first.
+
+     rat
+          Print a rational approximation, i.e., values are approximated
+          as the ratio of small integers.  For example, with the 'rat'
+          format, 'pi' is displayed as '355/113'.
+
+     The following two options affect the display of scientific and hex
+     notations.
+
+     'lowercase (default)'
+          Use a lowercase 'e' for the exponent character in scientific
+          notation and lowercase 'a-f' for the hex digits representing
+          10-15.
+
+     'uppercase'
+          Use an uppercase 'E' for the exponent character in scientific
+          notation and uppercase 'A-F' for the hex digits representing
+          10-15.
+
+     The following two options affect the display of all matrices.
+
+     'compact'
+          Remove blank lines around column number labels and between
+          matrices producing more compact output with more data per
+          page.
+
+     'loose (default)'
+          Insert blank lines above and below column number labels and
+          between matrices to produce a more readable output with less
+          data per page.
+
+     If 'format' is called with multiple competing options, the
+     rightmost one is used.  In case of an error the format remains
+     unchanged.
+
+     If called with one to three output arguments, and no inputs, return
+     the current format, format spacing, and uppercase preference.
+
+     See also: fixed_point_format, output_precision, split_long_rows,
+     print_empty_dimensions, rats.
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+'doc <topic>' to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at https://www.octave.org and via the help@octave.org
+mailing list.
+**************************************************************
+>> format long
+>> B
+B =
+
+                   0   0.500000000000000   4.000000000000000
+   1.000000000000000   1.732050807568877   0.577350269189626
+
+>> B(:,[1 3])
+ans =
+
+                   0   4.000000000000000
+   1.000000000000000   0.577350269189626
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+>> A=[1 2 3 4; 5 6 7 8; 9 10 11 12]
+A =
+
+    1    2    3    4
+    5    6    7    8
+    9   10   11   12
+
+>> diag(3:3:10)
+ans =
+
+Diagonal Matrix
+
+   3   0   0
+   0   6   0
+   0   0   9
+
+>> diag(A)
+ans =
+
+    1
+    6
+   11
+
+>> sum(diag(eye(10)))
+ans = 10
+--------------------------------------------------------------------------------------------------------------------
+>> A=[1 2;3 4]
+A =
+
+   1   2
+   3   4
+
+>> B=[1 -2;-1 0]
+B =
+
+   1  -2
+  -1   0
+
+>> C=[2 -2;-2 2]
+C =
+
+   2  -2
+  -2   2
+
+>> A+B
+ans =
+
+   2   0
+   2   4
+
+>> A+A
+ans =
+
+   2   4
+   6   8
+
+>> 2*B
+ans =
+
+   2  -4
+  -2   0
+
+>> size(A)(2)==size(B)(1)
+ans = 1
+>> A*B
+ans =
+
+  -1  -2
+  -1  -6
+
+>> A*B*C
+ans =
+
+    2   -2
+   10  -10
+
+>> (A*B)*C==A*(B*C)
+ans =
+
+  1  1
+  1  1
+
+>> A*(B+C)==A*B+A*C
+ans =
+
+  1  1
+  1  1
+
+>> I=eye(2)
+I =
+
+Diagonal Matrix
+
+   1   0
+   0   1
+
+>> A*I==A
+ans =
+
+  1  1
+  1  1
+
+>> I*A==A
+ans =
+
+  1  1
+  1  1
+
+>> O=zeros(2)
+O =
+
+   0   0
+   0   0
+
+>> O*A==A*O
+ans =
+
+  1  1
+  1  1
+
+>> A*O==O
+ans =
+
+  1  1
+  1  1
+
+>> a=10
+a = 10
+
+>> (a*A)*B==A*(a*B)
+ans =
+
+  1  1
+  1  1
+
+>> a*(A*B)==(a*A)*B
+ans =
+
+  1  1
+  1  1
+-------------------------------------------------------------------------------
+>> (A')'
+ans =
+
+   1   2
+   3   4
+
+>> A==(A')'
+ans =
+
+  1  1
+  1  1
+
+>> (A+B)'==A'+B'
+ans =
+
+  1  1
+  1  1
+>> (a*A)'==a*A'
+ans =
+
+  1  1
+  1  1
+
+>> (A*B)'==B'*A'
+ans =
+
+  1  1
+  1  1
+------------------------------------------------------------------------------------
+**************************************************************************************************
+ ∈ୂ>> help setdiff
+'setdiff' is a function from the file C:\Program Files\GNU Octave\Octave-6.2.0\mingw64\share\
+octave\6.2.0\m\set\setdiff.m
+
+ -- C = setdiff (A, B)
+ -- C = setdiff (A, B, "rows")
+ -- C = setdiff (..., "sorted")
+ -- C = setdiff (..., "stable")
+ -- C = setdiff (..., "legacy")
+ -- [C, IA] = setdiff (...)
+     Return the unique elements in A that are not in B.
+
+     If A is a row vector return a row vector; Otherwise, return a
+     column vector.  The inputs may also be cell arrays of strings.
+
+     If the optional input "rows" is given then return the rows in A
+     that are not in B.  The inputs must be 2-D numeric matrices to use
+     this option.
+
+     The optional argument "sorted"/"stable" controls the order in which
+     unique values appear in the output.  The default is "sorted" and
+     values in the output are placed in ascending order.  The
+     alternative "stable" preserves the order found in the input.
+
+     If requested, return the index vector IA such that 'C = A(IA)'.
+
+     Programming Note: The input flag "legacy" changes the algorithm to
+     be compatible with MATLAB releases prior to R2012b.
+
+     See also: unique, union, intersect, setxor, ismember.
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+'doc <topic>' to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at https://www.octave.org and via the help@octave.org
+mailing list.
+*************************************************************************************************+
+>> S=[1 2 3; 4 5 6; 7 8 9]
+S =
+
+   1   2   3
+   4   5   6
+   7   8   9
+
+>> setdiff(S,facil(1:3,1:3))
+ans =
+
+   3
+   6
+   8
+   9
+>> setdiff(1:9 , facil(1,1:9))
+ans =
+
+   3   4   6   9
+
+>> setdiff(1:9 , facil(1:9,1))
+ans =
+
+   1   6   8   9
+//Com base nos resultados da alinea anterior, podem ser colocados 7 algarismos na linha 1 e coluna 1 porque tem o 9 em comum para preencher, por isso o 1 elementos da matriz é 9.

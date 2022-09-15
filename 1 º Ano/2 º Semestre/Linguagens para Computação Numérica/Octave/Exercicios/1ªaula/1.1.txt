@@ -1,0 +1,12 @@
+>> output_precision (6)
+>> hip_max=sqrt(42^2+22^2)
+hip_max = 47.4131
+>> hip_min=sqrt(15^2+25^2)
+hip_min = 29.1548
+>> save hipotenusa.m
+>> clear
+>> load hipotenusa.m
+>> hip_max
+hip_max = 47.4131
+>> hip_min
+hip_min = 29.1548

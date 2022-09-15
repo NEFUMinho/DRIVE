@@ -1,0 +1,184 @@
+>> 2^8
+ans = 256
+>> 1/3
+ans = 0.3333
+>> 7*52-5*52
+ans = 104
+>> 21*1.8+32
+ans = 69.800
+>> 2*pi*9.15
+ans = 57.491
+>> Hipotenusa.min=sqrt(45^2+90^2)
+Hipotenusa =
+
+  scalar structure containing the fields:
+
+    min = 100.62
+
+>> Hipotenusa.max=sqrt(90^2+120^2)
+Hipotenusa =
+
+  scalar structure containing the fields:
+
+    min = 100.62
+    max = 150
+
+>> format long
+>> pi
+ans = 3.141592653589793
+>> format bank
+>> pi
+ans = 3.14
+>> format short
+>> pi
+ans = 3.1416
+>> format
+>> pi
+ans = 3.1416
+>> help pi
+'pi' is a built-in function from the file libinterp/corefcn/data.cc
+
+ -- pi
+ -- pi (N)
+ -- pi (N, M)
+ -- pi (N, M, K, ...)
+ -- pi (..., CLASS)
+     Return a scalar, matrix, or N-dimensional array whose elements are
+     all equal to the ratio of the circumference of a circle to its
+     diameter.
+
+     Internally, 'pi' is computed as '4.0 * atan (1.0)'.
+
+     When called with no arguments, return a scalar with the value of
+     pi.
+
+     When called with a single argument, return a square matrix with the
+     dimension specified.
+
+     When called with more than one scalar argument the first two
+     arguments are taken as the number of rows and columns and any
+     further arguments specify additional matrix dimensions.
+
+     The optional argument CLASS specifies the return type and may be
+     either "double" or "single".
+
+     See also: e, I.
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+'doc <topic>' to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at https://www.octave.org and via the help@octave.org
+mailing list.
+>> lookfor upper
+cellslices          Given an array X, this function produces a cell array of slices from th
+                    e array determined by the index vectors LB, UB, for lower and upper bou
+                    unds, respectively.
+chol                Compute the upper Cholesky factor, R, of the real symmetric or complex
+                    Hermitian positive definite matrix A.
+luupdate            Given an LU factorization of a real or complex matrix A = L*U, L lower
+                    unit trapezoidal and U upper trapezoidal, return the LU factorization o
+                    of A + X*Y.
+isupper             Return a logical array which is true where the elements of S are upperc
+                    ase letters and false where they are not.
+tolower             Return a copy of the string or cell string S, with each uppercase chara
+                    cter replaced by the corresponding lowercase one; non-alphabetic charac
+                    cters are left unchanged.
+toupper             Return a copy of the string or cell string S, with each lowercase chara
+                    cter replaced by the corresponding uppercase one; non-alphabetic charac
+                    cters are left unchanged.
+ordschur            Reorders the real Schur factorization (U,S) obtained with the ‘schur
+                     function, so that selected eigenvalues appear in the upper left diag
+                    gonal blocks of the quasi triangular Schur matrix.
+rsf2csf             Convert a real, upper quasi-triangular Schur form TR to a complex, uppe
+                    r triangular Schur form T.
+clc                 Clear the terminal screen and move the cursor to the upper left corner.
+triu                Return a new matrix formed by extracting the upper triangular part of t
+                    he matrix A, and setting all other elements to zero.
+isbanded            Return true if A is a matrix with entries confined between LOWER diagon
+                    als below the main diagonal and UPPER diagonals above the main diagonal
+                    l.
+istriu              Return true if A is an upper triangular matrix.
+>> help fix
+'fix' is a built-in function from the file libinterp/corefcn/mappers.cc
+
+ -- fix (X)
+     Truncate fractional portion of X and return the integer portion.
+
+     This is equivalent to rounding towards zero.  If X is complex,
+     return 'fix (real (X)) + fix (imag (X)) * I'.
+
+          fix ([-2.7, 2.7])
+             => -2    2
+
+     See also: ceil, floor, round.
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+'doc <topic>' to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at https://www.octave.org and via the help@octave.org
+mailing list.
+>> help floor
+'floor' is a built-in function from the file libinterp/corefcn/mappers.cc
+
+ -- floor (X)
+     Return the largest integer not greater than X.
+
+     This is equivalent to rounding towards negative infinity.  If X is
+     complex, return 'floor (real (X)) + floor (imag (X)) * I'.
+
+          floor ([-2.7, 2.7])
+               => -3    2
+
+     See also: ceil, round, fix.
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+'doc <topic>' to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at https://www.octave.org and via the help@octave.org
+mailing list.
+>> fix(5.9)
+ans = 5
+>> fix(-5.9)
+ans = -5
+>> floor(5.9)
+ans = 5
+>> floor(-5.9)
+ans = -6
+>> 2*pi
+ans = 6.2832
+>> ans*9.15
+ans = 57.491
+>> r=3
+r = 3
+>> resultado=2*pi*r
+resultado = 18.850
+>> who
+Variables visible from the current scope:
+
+Hipotenusa  ans         r           resultado
+
+>> whos
+Variables visible from the current scope:
+
+variables in scope: top scope
+
+   Attr Name            Size                     Bytes  Class
+   ==== ====            ====                     =====  =====
+        Hipotenusa      1x1                         16  struct
+        ans             1x1                          8  double
+        r               1x1                          8  double
+        resultado       1x1                          8  double
+
+Total is 4 elements using 40 bytes
+
+>> clear resultado
+>> clear
+>> save primeira.m
+>> pwd
+ans = C:\Users\Luis
