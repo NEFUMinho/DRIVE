@@ -1,0 +1,31 @@
+#include "miniteste.h"
+
+void rm(Posicao s[], int n, int N){
+    int i;
+    for(i = n+1; i < N; i++, n++){
+        s[n] = s[i];
+    }
+}
+
+int dist(int x, int y){
+    return(abs(x - 0) + abs(y - 0));
+}
+
+Posicao nesimo(Posicao a[], int N) {
+    int ind = 0;
+    int i;
+    int r = 0;
+    while(r < 296){
+        int maisperto = dist(a[0].x, a[0].y);
+        for(i = 0; i < N; i++){
+            if(dist(a[i].x, a[i].y) < maisperto){
+                ind = i;
+                maisperto = dist(a[i].x, a[i].y);
+            }
+        }
+        rm(a, ind, N);
+        N -= 1;
+        r++;
+        }
+    return a[ind];
+}

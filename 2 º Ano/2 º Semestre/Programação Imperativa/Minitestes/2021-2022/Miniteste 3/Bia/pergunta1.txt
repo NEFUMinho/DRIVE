@@ -1,0 +1,33 @@
+#include "miniteste.h"
+
+int soma(char *s) {
+    int soma = 0;
+    while (*s) {
+        soma += *s - '0';
+        s++;
+    }
+    return soma;
+}
+
+
+void corrige(char s[]) {
+    int total=4683;
+    int somas = soma(s);
+    int var = total-somas;
+    while (*s) {
+        if (var <= 0) {
+            break;
+        }
+        if (*s == '0') {
+            if (var>=9){
+                *s = '9';
+                var -= 9;
+            } 
+            else {
+                *s = '0' + var;
+                break;
+            }
+        }
+        s++;
+    }
+}
