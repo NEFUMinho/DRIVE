@@ -1,0 +1,567 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language portuguese
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Workshop on LyX
+\end_layout
+
+\begin_layout Author
+N.
+ M.
+ R.
+ Peres
+\end_layout
+
+\begin_layout Address
+Univeristy of Minho, Braga, Portugal
+\end_layout
+
+\begin_layout Abstract
+Nesta workshop iremos ver o funcionamento básico do LyX, incluindo o uso
+ de floats.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Basic notions
+\end_layout
+
+\begin_layout Enumerate
+Equations
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Formulas
+\end_layout
+
+\begin_layout Enumerate
+Inline equations
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Latex commands
+\end_layout
+
+\begin_layout Enumerate
+Flots
+\end_layout
+
+\begin_layout Enumerate
+Bibliography
+\end_layout
+
+\begin_layout Standard
+These four topics will be covered in this workshop.
+\end_layout
+
+\begin_layout Subsection
+Integrals
+\end_layout
+
+\begin_layout Standard
+My fisrt equation
+\begin_inset Formula 
+\begin{equation}
+n!=n(n-1)(m-2)\cdots2\times1\label{eq:rede}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Equations using LaTeX
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\int_{0}^{2}e^{-x}dx=-e^{-x}\vert_{0}^{2}=1-e^{-2}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consideremos que a força é da forma
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f(x)=\prod_{i=1}^{n}\frac{(-1)^{i}}{x^{i}},
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+então a segunda lei de Newton é dada por 
+\begin_inset Formula $m\ddot{x}=f(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\int_{0}^{1}e^{-x}dx=\left.-e^{-x}\right|_{0}^{1}=1-e^{-1}\label{eq:borboleta}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:borboleta"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ This equation was first found in ref.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Buterfly"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tables
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $z$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Position of the bike in two different experiments
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Position-of-the-Newton-second-law"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\hat{L}_{z}=\left[\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 0 & 0\\
+0 & 0 & -1
+\end{array}\right].\label{eq:Lz_angular_momentum}
+\end{equation}
+
+\end_inset
+
+The 
+\begin_inset Formula $z-$
+\end_inset
+
+component of the spin 1 angular momentum is given by Eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lz_angular_momentum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ For spin 1/2 the vector of the Pauli matrices is
+\begin_inset Formula 
+\begin{equation}
+\overrightarrow{\sigma}=(\sigma_{x},\sigma_{y},\sigma_{z}).
+\end{equation}
+
+\end_inset
+
+The Hamiltonian of a spin 1/2 in a magnetic field reads
+\begin_inset Formula 
+\begin{equation}
+H=g\overrightarrow{B}\cdot\overrightarrow{\sigma}.
+\end{equation}
+
+\end_inset
+
+Writing the Hamiltonian in bold math
+\begin_inset Formula 
+\begin{equation}
+H=g\mathbf{B}\cdot\bm{\sigma}.
+\end{equation}
+
+\end_inset
+
+The 
+\begin_inset Formula $\sigma_{y}$
+\end_inset
+
+ Pauli matrix is defined as
+\begin_inset Formula 
+\begin{equation}
+\sigma_{y}=\left(\begin{array}{cc}
+0 & -i\\
+i & 0
+\end{array}\right).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Flots (Figures)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename WhatsApp Image 2022-12-15 at 19.26.26.jpeg
+	lyxscale 40
+	width 5cm
+	rotateOrigin centerBottom
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+My dream bi
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:My-dream-bike."
+
+\end_inset
+
+ke.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:My-dream-bike."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ was the bike used in the experiments whose data is in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Position-of-the-Newton-second-law"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The characteristic of the bike can be found in ref.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bike_dic"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Bike_dic"
+literal "false"
+
+\end_inset
+
+ N.
+ M.
+ R.
+ Peres, 
+\emph on
+Dictionary of mountain bike
+\emph default
+, (Oxford University, Oxford, 2023).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Buterfly"
+literal "false"
+
+\end_inset
+
+ N.
+ M.
+ R.
+ Peres, Ensaio sobre borboletas, (Cambridge University Press, Cambridge,
+ 2055).
+\end_layout
+
+\end_body
+\end_document

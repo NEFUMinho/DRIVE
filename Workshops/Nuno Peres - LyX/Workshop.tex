@@ -1,0 +1,152 @@
+%% LyX 2.3.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[portuges]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{esint}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newcommand{\lyxaddress}[1]{
+	\par {\raggedright #1
+	\vspace{1.4em}
+	\noindent\par}
+}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title{Workshop on LyX}
+\author{N. M. R. Peres}
+\maketitle
+
+\lyxaddress{Univeristy of Minho, Braga, Portugal}
+\begin{abstract}
+Nesta workshop iremos ver o funcionamento básico do LyX, incluindo
+o uso de floats.
+\end{abstract}
+\tableofcontents{}
+
+\section{Basic notions}
+\begin{enumerate}
+\item Equations
+\begin{enumerate}
+\item Formulas
+\item Inline equations
+\end{enumerate}
+\item Latex commands
+\item Flots
+\item Bibliography
+\end{enumerate}
+These four topics will be covered in this workshop.
+
+\subsection{Integrals}
+
+My fisrt equation
+\begin{equation}
+n!=n(n-1)(m-2)\cdots2\times1\label{eq:rede}
+\end{equation}
+
+
+\subsection{Equations using LaTeX}
+
+\begin{equation}
+\int_{0}^{2}e^{-x}dx=-e^{-x}\vert_{0}^{2}=1-e^{-2}.
+\end{equation}
+
+Consideremos que a força é da forma
+
+\begin{equation}
+f(x)=\prod_{i=1}^{n}\frac{(-1)^{i}}{x^{i}},
+\end{equation}
+
+então a segunda lei de Newton é dada por $m\ddot{x}=f(x)$
+
+\begin{equation}
+\int_{0}^{1}e^{-x}dx=\left.-e^{-x}\right|_{0}^{1}=1-e^{-1}\label{eq:borboleta}
+\end{equation}
+
+Equation (\ref{eq:borboleta}). This equation was first found in ref.
+\cite{Buterfly}
+
+\section{Tables}
+
+\begin{table}
+\begin{centering}
+\begin{tabular}{|c|c|c|}
+\hline 
+$x$ & $y$ & $z$\tabularnewline
+\hline 
+\hline 
+1 & 2 & 3\tabularnewline
+\hline 
+4 & 5 & 6\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+\caption{Position of the bike in two different experiments\label{tab:Position-of-the-Newton-second-law}.}
+\end{table}
+
+\begin{equation}
+\hat{L}_{z}=\left[\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 0 & 0\\
+0 & 0 & -1
+\end{array}\right].\label{eq:Lz_angular_momentum}
+\end{equation}
+The $z-$component of the spin 1 angular momentum is given by Eq.
+(\ref{eq:Lz_angular_momentum}). For spin 1/2 the vector of the Pauli
+matrices is
+\begin{equation}
+\overrightarrow{\sigma}=(\sigma_{x},\sigma_{y},\sigma_{z}).
+\end{equation}
+The Hamiltonian of a spin 1/2 in a magnetic field reads
+\begin{equation}
+H=g\overrightarrow{B}\cdot\overrightarrow{\sigma}.
+\end{equation}
+Writing the Hamiltonian in bold math
+\begin{equation}
+H=g\mathbf{B}\cdot\bm{\sigma}.
+\end{equation}
+The $\sigma_{y}$ Pauli matrix is defined as
+\begin{equation}
+\sigma_{y}=\left(\begin{array}{cc}
+0 & -i\\
+i & 0
+\end{array}\right).
+\end{equation}
+
+
+\section{Flots (Figures)}
+
+\begin{figure}[t]
+\begin{centering}
+\includegraphics[width=5cm]{\string"WhatsApp Image 2022-12-15 at 19.26.26\string".jpeg}
+\par\end{centering}
+\caption{My dream bi\label{fig:My-dream-bike.}ke.}
+
+\end{figure}
+
+Figure \ref{fig:My-dream-bike.} was the bike used in the experiments
+whose data is in table \ref{tab:Position-of-the-Newton-second-law}.
+The characteristic of the bike can be found in ref. \cite{Bike_dic}
+\begin{thebibliography}{1}
+\bibitem{Bike_dic} N. M. R. Peres, \emph{Dictionary of mountain bike},
+(Oxford University, Oxford, 2023).
+
+\bibitem{Buterfly} N. M. R. Peres, Ensaio sobre borboletas, (Cambridge
+University Press, Cambridge, 2055).
+\end{thebibliography}
+
+\end{document}
