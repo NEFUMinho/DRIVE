@@ -1,0 +1,206 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{mdframed}
+
+\title{Introdução à Análise de Complexidade\\ Resolução de exercícios de testes}
+\author{Eduardo Freitas Fernandes}
+\date{2025}
+
+
+\begin{document}
+	
+	\maketitle
+	
+	\noindent \textbf{Exercício 1}\\
+	
+	\noindent Nesta análise, contamos o número de acessos ao array \texttt{v}:
+	\begin{itemize}
+		\item \textbf{melhor caso}: array estritamente crescente.
+		\[ T_{melhor}(N) = \sum_{i=0}^{N-1} 1 = \Omega(N) \]
+		\item \textbf{pior caso}: array descrescente.
+		\[
+		T_{pior}(N) = \sum_{i=0}^{N-1} 1 + \sum_{i=0}^{N-1} \sum_{j=0}^{i-1} 1 = N + \sum_{i=0}^{N-1} i = N + \frac{N \times (N-1)}{2} = O(N^2)
+		\]
+	\end{itemize}
+	
+	\noindent Nesta análise, contamos o número de acessos ao array \texttt{a}:
+	\[
+	T(N) = \sum_{i=0}^{N-1} \sum_{j=0}^{i-1} 2 = \sum_{i=0}^{N-1} 2 \times i = 2 \times \frac{N \times (N-1)}{2} = \Theta(N^2)
+	\]
+	
+	
+	\noindent \textbf{Exercício 2}\\
+	\[
+		T(N) = 
+		\begin{cases}
+			0 & N \leq 0 \\
+			T_{processa}(N) + 2 \times T(N/2) & N > 0
+		\end{cases}
+		\quad = \quad
+		\begin{cases}
+			0 & N \leq 0 \\
+			N + 2 \times T(N/2) & N > 0
+		\end{cases}
+	\]
+	\[
+		= \sum_{i=1}^{1+\log_2(N)} N = N \times (1 + \log_2(N)) = \Theta(N \times \log_2(N))
+	\]
+	
+	
+	\newpage
+	
+	\noindent \textbf{Exercício 3}\\
+	
+	\noindent Nesta análise, contamos o número de execuções da função \texttt{swap()}:
+	\begin{itemize}
+		\item \textbf{melhor caso}: array crescente.
+		\[
+		T_{bubble}(N) = \Omega(1), \quad T_{bsort}(N) = \Omega(1)
+		\]
+		\item \textbf{pior caso}: array estritamente decrescente.
+		\[
+		T_{bubble}(N) = O(N), \quad T_{bsort}(N) = \sum_{i=0}^{N} N = O(N^2)
+		\]
+	\end{itemize}
+	
+	\noindent Nesta análise, contamos o número de comparações feitas entre elementos do array \texttt{a} (i.e: \texttt{(a[i] < a[i-1])})
+	\begin{itemize}
+		\item \textbf{melhor caso}: array crescente, \texttt{bubble()} executa uma vez, e \texttt{bsort()} termina o ciclo.
+		\[
+		T_{bsort}(N) = \sum_{i=0}^{N-1} 1 = \Omega(N)
+		\]
+		\item \textbf{pior caso}: array estritamente decrescente, o ciclo em \texttt{bsort()} executa \texttt{N} vezes.
+		\[
+		T_{bsort}(N) = \sum_{i=0}^{N-1} N = O(N^2)
+		\]
+	\end{itemize}
+	
+	
+	\noindent \textbf{Exercício 4}\\
+	
+	\noindent Nesta análise, contamos o número de vezes que a operação \texttt{k*=i} é executada:
+	\[
+	T_{factorial}(N) = \Theta(N), \quad T_{factoriais}(N) = \sum_{i=0}^{N-1} N = \Theta(N^2)
+	\]
+	
+	
+	\noindent \textbf{Exercício 5}\\
+	
+	
+	\noindent \textbf{Exercício 6}\\
+	
+	\noindent Nesta análise, contamos o número de vezes que a condição \texttt{B[j] <= A[i]} é avaliada:
+	\begin{itemize}
+		\item \textbf{melhor caso}: 
+		\[
+		T(N) = \sum_{i=0}^{N-1} 1 = \Omega(N)
+		\]
+		\item \textbf{pior caso}: 
+		\[
+		T(N) = \sum_{i=0}^{N-1} \sum_{j=0}^{i-1} 1 = \sum_{i=0}^{N-1} i = \frac{N \times (N-1)}{2} = O(N^2)
+		\]
+	\end{itemize}
+	
+	
+	\noindent \textbf{Exercício 7}\\
+	\[
+		T(N) = 
+		\begin{cases}
+			0 & N \leq 0 \\
+			1 + 2 \times T(N/2) & N > 0
+		\end{cases}
+		= \sum_{i=0}^{\log_2(N)} 2^i = \frac{2^{1+ \log_2 N} - 1}{2-1} = \Theta(\log_2 N)
+	\]
+
+
+	\noindent \textbf{Exercício 8}\\
+	
+	\noindent Nesta análise, iremos avaliar o pior caso, em que \texttt{k = N}:
+	\[
+	T(N) = 
+	\begin{cases}
+		0 & N \leq 0 \\
+		N + T(N-1) & N > 0
+	\end{cases}
+	= \sum_{i=1}^{N} i = \frac{N \times (N+1)}{2} = O(N^2)
+	\]
+	
+	
+	\noindent \textbf{Exercício 9}
+\begin{mdframed}
+\begin{verbatim}
+void shift(int u[], int n, int k) {
+    int storage[N];
+    int i;
+    // calcular novas posicoes
+    for (i = 0; i < N; i++)
+        storage[(i + k) % n] = u[i];
+    // copiar para o array original
+    for (i = 0; i < N; i++)
+        u[i] = storage[i];
+}
+\end{verbatim}
+\end{mdframed}	
+	
+	
+	\noindent \textbf{Exercício 10}\\
+	
+	\noindent Nesta análise, iremos contar o número de vezes que o array \texttt{bits} é alterado (i.e: \texttt{bits[n] = ...}):
+	\begin{itemize}
+		\item \textbf{melhor caso}: bit menos significativo (à direita) a zero.
+		\[ T(N) = \Omega(1) \]
+		\item \textbf{pior caso}: todos os bits a 1, ou o mais significativo a 0, e os restantes a 1.
+		\[ T(N) = \sum_{i=0}^{N-1} 1 = O(N) \]
+	\end{itemize}
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			i & input & output & $ c_i $ \\
+			\hline
+			\hline
+			1 & \fbox{0} \fbox{0} \fbox{0} \fbox{0} & \fbox{0} \fbox{0} \fbox{0} \fbox{1} & 1 = 1 \\
+			2 & \fbox{0} \fbox{0} \fbox{0} \fbox{1} & \fbox{0} \fbox{0} \fbox{1} \fbox{0} & 2 = 1 + 1 \\
+			3 & \fbox{0} \fbox{0} \fbox{1} \fbox{0} & \fbox{0} \fbox{0} \fbox{1} \fbox{1} & 1 = 1 \\
+			4 & \fbox{0} \fbox{0} \fbox{1} \fbox{1} & \fbox{0} \fbox{1} \fbox{0} \fbox{0} & 3 = 1 + 1 + 1 \\
+			5 & \fbox{0} \fbox{1} \fbox{0} \fbox{0} & \fbox{0} \fbox{1} \fbox{0} \fbox{1} & 1 = 1 \\
+			6 & \fbox{0} \fbox{1} \fbox{0} \fbox{1} & \fbox{0} \fbox{1} \fbox{1} \fbox{0} & 2 = 1 + 1 \\
+			7 & \fbox{0} \fbox{1} \fbox{1} \fbox{0} & \fbox{0} \fbox{1} \fbox{1} \fbox{1} & 1 = 1 \\
+			8 & \fbox{0} \fbox{1} \fbox{1} \fbox{1} & \fbox{1} \fbox{0} \fbox{0} \fbox{0} & 4 = 1 + 1 + 1 + 1 \\
+			9 & \fbox{1} \fbox{0} \fbox{0} \fbox{0} & \fbox{1} \fbox{0} \fbox{0} \fbox{1} & 1 = 1 \\
+			10 & \fbox{1} \fbox{0} \fbox{0} \fbox{1} & \fbox{1} \fbox{0} \fbox{1} \fbox{0} & 2 = 1 + 1 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\noindent O que pretendemos calcular é a soma dos elementos da última coluna $ \sum c_i $ para depois calcular a sua média. Neste caso, podemos ver que:
+	\begin{itemize}
+		\item todas as linhas têm a parcela 1
+		\item metade das linhas têm também a parcela +1
+		\item um quarto das linhas têm também mais uma parcela +1
+		\item ...
+	\end{itemize}
+	
+	\noindent Generalizando, a soma dos valores da última coluna pode ser calculada por:
+	\[
+	C_N = N + \frac{N}{2} + \frac{N}{4} + ... = \sum_{i=0}^{\log_2 N} \frac{N}{2^i} = N \times (2 - \frac{1}{2^{\log_2 N}}) = 2 \times N - 1
+	\]
+	
+	\noindent Para sabermos o custo amortizado de cada operação, temos que dividir este custo pelo número de operações em causa:
+	\[
+	\hat{c}_i = \frac{C_N}{N} = \frac{2 \times N - 1}{N} = 2 - \frac{1}{N} = \Theta(1)
+	\]
+	
+	
+	\noindent \textbf{Exercício 11}\\
+	
+	
+	
+	
+	
+	
+	
+\end{document}

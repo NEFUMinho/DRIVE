@@ -1,0 +1,184 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[portuges]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{minted}
+\usepackage[twoside,verbose,body={16cm,24cm},
+left=25mm,top=20mm]{geometry}
+
+\title{Algoritmos sobre Grafos\\ Resolução de exercícios de exames}
+\author{Eduardo Freitas Fernandes}
+\date{2025}
+
+\setminted{
+	frame=single,
+	tabsize=4,
+	breaklines=true
+}
+
+\begin{document}
+	
+\maketitle
+	
+\noindent \textbf{Exercício 1}
+
+\begin{minted}{c}
+typedef enum { Vermelho, Amarelo, Azul, Verde } Cor;
+	
+struct node {
+	int dest;
+	Cor linha;
+	struct node *next;
+};
+	
+typedef struct grafo {
+	int capacidade;
+	int tamanho;
+	char ** estacoes;
+	struct node **entradas;
+} Grafo;	
+\end{minted}
+
+\begin{minted}{c}
+void initGrafo(Grafo * g) {
+	g->capacidade = 10;
+	g->tamanho = 0;
+	
+	g->estacoes = malloc(g->capacidade * sizeof(char *));
+	g->entradas = malloc(g->capacidade * sizeof(struct node *));
+	
+	for (int i = 0; i < g->capacidade; i++) {
+		g->estacoes[i] = NULL;
+		g->entradas[i] = NULL;
+	}
+}
+
+void addEstacao(Grafo * g, const char * estacao) {
+	// array cheio
+	if (g->tamanho == g->capacidade) {
+		g->capacidade *= 2;
+		g->estacoes = realloc(g->estacoes, g->capacidade * sizeof(char *));
+		g->entradas = realloc(g->entradas, g->capacidade * sizeof(struct node *));
+	}
+	
+	g->estacoes[g->tamanho++] = strdup(estacao);
+}
+
+void addLinha(Grafo * g, const char * origem, const char * destino, Cor linha) {
+	int or, dest;
+	// procurar indice de origem
+	for (or = 0; or < g->tamanho && strcmp(g->estacoes[or], origem); or++);
+	
+	// adicionar origem, caso não exista
+	if (or == g->tamanho) {
+		addEstacao(g, origem);
+		or = g->tamanho - 1;
+	}
+	
+	// procurar indice de destino
+	for (dest = 0; dest < g->tamanho && strcmp(g->estacoes[dest], origem); dest++);
+	
+	// adicionar destino, caso não exista
+	if (dest == g->tamanho) {
+		addEstacao(g, destino);
+		dest = g->tamanho - 1;
+	}
+	
+	struct node ** temp = &(g->entradas[or]);
+	// adicionar ordenadamente
+	while (*temp != NULL && (*temp)->dest < dest)
+		temp = &((*temp)->next);
+	
+	// adicionar aresta
+	struct node * aux = malloc(sizeof(struct node));
+	aux->next = *temp;
+	*temp = aux;
+}
+\end{minted}
+
+\begin{minted}{c}
+int passaPorEstacao(Grafo * g, const char * estacao, int visitados[]) {
+}
+\end{minted}
+
+\begin{minted}{c}
+int existeLigacao(Grafo * g, const char * origem, const char * destino, Cor linha) {
+}
+\end{minted}
+
+\noindent \textbf{Exercício 2}
+
+\begin{minted}{c}
+\end{minted}
+
+\noindent \textbf{Exercício 3}
+
+\begin{minted}{c}
+\end{minted}
+
+\noindent \textbf{Exercício 4}
+
+\begin{minted}{c}
+void graphComp (Graph g, graph r) {
+
+}
+\end{minted}
+
+\noindent \textbf{Exercício 5}
+
+\begin{minted}{c}
+\end{minted}
+
+\begin{minted}{c}
+\end{minted}
+
+\noindent \textbf{Exercício 6}
+
+\begin{minted}{c}
+\end{minted}
+
+\noindent \textbf{Exercício 7}
+
+\begin{minted}{c}
+\end{minted}
+
+\noindent \textbf{Exercício 8}
+
+\begin{minted}{c}
+\end{minted}
+
+\noindent \textbf{Exercício 9}
+
+\begin{minted}{c}
+\end{minted}
+
+\noindent \textbf{Exercício 10}
+
+\begin{minted}{c}
+\end{minted}
+
+\noindent \textbf{Exercício 11}
+
+\begin{minted}{c}
+\end{minted}
+
+\noindent \textbf{Exercício 12}
+
+\begin{minted}{c}
+\end{minted}
+
+\noindent \textbf{Exercício 13}
+
+\begin{minted}{c}
+\end{minted}
+
+\noindent \textbf{Exercício 14}
+
+\begin{minted}{c}
+\end{minted}
+
+
+
+
+
+\end{document}
